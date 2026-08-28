@@ -1,0 +1,31 @@
+{
+  "name": "@csa/migrate",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The CSA migration harness: transform, deduplicate, quarantine, load and reconcile a legacy extract. Synthetic fixtures only.",
+  "sideEffects": false,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@csa/api-client": "workspace:*",
+    "@csa/domain": "workspace:*",
+    "@csa/legacy-fixtures": "workspace:*",
+    "@csa/validation": "workspace:*",
+    "postgres": "3.4.9",
+    "zod": "catalog:"
+  }
+}

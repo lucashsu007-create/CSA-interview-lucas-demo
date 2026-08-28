@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+
+  // Root typecheck config: `pnpm typecheck`. It covers the shared packages and the
+  // root tooling files, and emits nothing.
+  //
+  // apps/ is excluded on purpose. Next.js and Expo each generate and own their own
+  // tsconfig with runtime-specific jsx, lib and plugin settings; typechecking them from
+  // here would fight those. Each app runs its own typecheck once it exists (Wave 1).
+  //
+  // There are deliberately no "paths" here. Cross-package imports resolve through the
+  // pnpm workspace symlinks in node_modules and each package's own "exports"/"types",
+  // which is the same resolution the bundlers use. A "paths" map would shadow that and
+  // quietly diverge from what Metro and Next actually load.
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["node", "vitest/globals"]
+  },
+  "include": ["vitest.config.ts", "packages/**/*.ts", "packages/**/*.tsx", "tests/**/*.ts"],
+  "exclude": [
+    "node_modules",
+    "**/node_modules",
+    "**/dist",
+    "**/build",
+    "**/.next",
+    "**/.expo",
+    "apps",
+    "coverage"
+  ]
+}

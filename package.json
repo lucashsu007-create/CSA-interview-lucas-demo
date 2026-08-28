@@ -1,0 +1,39 @@
+{
+  "name": "csa-digital-hub",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Concept prototype for the Chinese Student Association Rotterdam IT Committee application. Not an official CSA product; fictional data only.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "packageManager": "pnpm@11.1.3",
+  "engines": {
+    "node": ">=24",
+    "pnpm": ">=11"
+  },
+  "scripts": {
+    "dev:web": "pnpm --filter @csa/web dev",
+    "build:web": "pnpm --filter @csa/web build",
+    "typecheck": "pnpm typecheck:root && pnpm typecheck:packages && pnpm typecheck:apps",
+    "typecheck:root": "tsc --noEmit -p tsconfig.json --jsx react-jsx",
+    "typecheck:packages": "pnpm --filter './packages/**' --if-present typecheck",
+    "typecheck:apps": "pnpm --filter './apps/**' --if-present typecheck",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,mjs,cjs,json,css,yaml,yml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mjs,cjs,json,css,yaml,yml}\"",
+    "fixtures:generate": "tsx packages/legacy-fixtures/src/cli.ts --out fixtures/legacy",
+    "migrate": "tsx packages/migrate/src/cli.ts",
+    "migrate:demo": "pnpm fixtures:generate && tsx packages/migrate/src/cli.ts --extract fixtures/legacy --mode dry_run"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "@types/node": "24.13.3",
+    "@vitest/coverage-v8": "4.1.10",
+    "prettier": "3.9.6",
+    "tsx": "^4.23.12",
+    "typescript": "5.9.3",
+    "vitest": "4.1.10"
+  }
+}

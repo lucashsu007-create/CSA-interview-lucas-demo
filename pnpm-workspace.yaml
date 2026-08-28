@@ -1,0 +1,36 @@
+# CSA Digital Hub — pnpm workspace.
+# apps/*     Expo member app (mobile) and Next.js committee portal (admin). Wave 1.
+# packages/* domain, validation, api-client, design-tokens — shared by both runtimes.
+#
+# supabase/ and tests/ are deliberately NOT workspace packages: supabase/ is SQL
+# owned by the database and seed workstreams, and tests/critical-flow runs from the
+# root toolchain rather than shipping as a package.
+packages:
+  - "apps/*"
+  - "packages/*"
+
+# Single source of truth for versions shared across packages. A package opts in with
+# "zod": "catalog:" instead of a literal range; a literal range still works, so this is
+# advisory, not enforced. Keep it in step with the root devDependencies.
+catalog:
+  "@types/node": "24.13.3"
+  "@vitest/coverage-v8": "4.1.10"
+  prettier: "3.9.6"
+  typescript: "5.9.3"
+  vitest: "4.1.10"
+  zod: "4.4.3"
+
+# pnpm 11 blocks every dependency postinstall script by default; anything not listed
+# here stays blocked, which is the behaviour we want. These are the native builders the
+# target stack (Next.js, Tailwind 4, Expo/Metro) is expected to need. Wave 1 prunes what
+# it does not install and adds what it does.
+allowBuilds:
+  "@parcel/watcher": true
+  "@swc/core": true
+  "@tailwindcss/oxide": true
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
+
+minimumReleaseAgeExclude:
+  - lucide-react@1.33.0

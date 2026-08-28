@@ -1,0 +1,22 @@
+node_modules/
+.pnpm-store/
+pnpm-lock.yaml
+
+dist/
+build/
+out/
+.next/
+.expo/
+.expo-shared/
+coverage/
+test-results/
+playwright-report/
+
+# Source documents and the frozen Wave 0 contract — reformatting them is pure diff noise
+# and `docs/architecture.md` is meant to be edited deliberately, not by a formatter.
+plans/
+docs/
+
+# Supabase local state
+supabase/.branches/
+supabase/.temp/

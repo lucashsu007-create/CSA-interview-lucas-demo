@@ -1,0 +1,55 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# Expo / React Native
+.expo/
+.expo-shared/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+
+# Local data — never commit member, ticket, or payment data
+*.db
+*.sqlite
+cache/
+exports/
+supabase/.branches/
+supabase/.temp/
+
+# Test and coverage output
+coverage/
+test-results/
+playwright-report/
+.playwright/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Python bytecode — the migration skill's reconciler is stdlib Python, and
+# running its tests leaves these behind.
+__pycache__/
+*.pyc
+
+# Generated legacy extract. `pnpm fixtures:generate` rebuilds it byte-for-byte
+# from a seed, so the files are an artefact rather than a source, and a 200 kB
+# XML export in the diff hides the code that produced it.
+fixtures/

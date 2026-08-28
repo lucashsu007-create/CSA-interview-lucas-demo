@@ -1,0 +1,27 @@
+{
+  "name": "@csa/validation",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Zod schemas for the CSA Digital Hub contract, and the single place snake_case rows become camelCase domain objects.",
+  "sideEffects": false,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@csa/domain": "workspace:*",
+    "zod": "catalog:"
+  }
+}

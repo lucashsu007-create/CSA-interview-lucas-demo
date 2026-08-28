@@ -1,0 +1,31 @@
+{
+  "name": "@csa/admin",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@csa/api-client": "workspace:*",
+    "@csa/design-tokens": "workspace:*",
+    "@csa/domain": "workspace:*",
+    "@csa/motion": "workspace:*",
+    "@csa/validation": "workspace:*",
+    "clsx": "2.1.1",
+    "lucide-react": "1.33.0",
+    "next": "16.3.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "tailwind-merge": "3.4.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.4",
+    "tailwindcss": "4.3.3"
+  }
+}

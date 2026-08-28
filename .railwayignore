@@ -1,0 +1,17 @@
+# Upload excludes for `railway up`. Build artefacts and dependencies are
+# rebuilt on Railway, so shipping them only slows the upload down.
+node_modules/
+.git/
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+
+# Local-only: test output, generated fixtures, the Expo app (not deployed here).
+test-results/
+playwright-report/
+coverage/
+fixtures/
+apps/mobile/
+__pycache__/

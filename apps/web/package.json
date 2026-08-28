@@ -1,0 +1,25 @@
+{
+  "name": "@csa/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Independent modernisation concept for the public CSA Rotterdam website.",
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start --port 3000",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@csa/design-tokens": "workspace:*",
+    "@csa/motion": "workspace:*",
+    "lucide-react": "1.33.0",
+    "next": "16.3.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.4"
+  }
+}
